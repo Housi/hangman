@@ -1,0 +1,10 @@
+<div class="game">
+  <display data="vm.data"></display>
+  <keyboard action="vm.processInput" disabled="vm.data.gameOver"></keyboard>
+  <div class="overlay" ng-show="vm.data.gameOver">
+    <p class="overlay__text">
+      {{ vm.data.gameStatus }}
+    </p>
+    <a class="overlay__button" ng-click="vm.retry()">new word</a>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="folk" >
+    <img class="folk__image" ng-src="images/{{ vm.data.missed.length }}.png" />
+  </div>
+  <div class="missed" ng-class="{'missed--hidden': !vm.data.missed.length }">
+    <div class="missed__title">
+      You missed:
+    </div>
+    <div>
+      <div class="missed__letter" ng-repeat="letter in vm.data.missed track by vm.arrayHash($index, letter)">
+        {{ letter }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="guess">
+  <div class="guess__box guess__box--inactive" ng-repeat="letter in vm.data.inactive track by vm.arrayHash($index, letter)"></div>
+  <div class="guess__box" ng-repeat="letter in vm.data.currentWord track by vm.arrayHash($index, letter)">
+    <span class="guess__letter" ng-class="{'guess__letter--visible': vm.data.discovered.indexOf('{{ letter }}') > -1}">{{ letter }}</span>
+  </div>
+</div>
+<div class="triangle"></div>
